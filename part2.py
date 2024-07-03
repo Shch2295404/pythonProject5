@@ -12,3 +12,7 @@ print(df.nunique())  # вывод уникальных значений стол
 print(df.describe())  # вывод описательной статистики
 
 df['test'] = [new for new in range(len(df))] # создание нового столбца
+print(df.head(len(df)))
+
+df.drop('test', axis=1, inplace=True) # inplace=True - обновляет df вместе с удалением столбца
+print(df.head(len(df)))
