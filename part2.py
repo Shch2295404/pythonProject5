@@ -1,4 +1,5 @@
 import pandas as pd
+from pandas import DataFrame
 
 ('\n'
  '    Этот код считывает CSV-файл \'hh.csv\' в pandas DataFrame, \n'
@@ -20,11 +21,14 @@ print(df.head(len(df)))
 df.drop(len(df)-4, axis=0, inplace=True) # inplace=True - обновляет df вместе с удалением строки
 print(df.head(len(df)))
 
-df.sort_values(by='Название вакансии', inplace=True) # Сортировка DataFrame по столбцу 'Название вакансии'
+df.sort_values(by='Название вакансии', inplace=True)
+
+# inplace=True - обновляет df вместе с сортировкой
 '''
 df.arrange('Название вакансии')
-Для ясности и стандартизации я заменил arrange на sort_values. 
-Кроме того, я использовал параметр by, чтобы указать столбец для сортировки, 
+Для ясности и стандартизации заменил arrange на sort_values. 
+Кроме того, использовал параметр by, чтобы указать столбец для сортировки, 
+.str.lower() для перевода значений столбцов в нижний регистр 
 и установил inplace=True для операции сортировки, чтобы изменить DataFrame на месте.
 '''
 print(df.head(len(df)))
