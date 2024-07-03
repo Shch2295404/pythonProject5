@@ -1,12 +1,15 @@
 import pandas as pd
 
-df = pd.read_csv("dz.csv")
+df = pd.read_csv("dz.csv")  # считывает данные из CSV-файла в DataFrame
 
-print(df.head())
+print(df.head())  # печатает первые 5 строк DataFrame
 print(df.info())  # печатает информацию о DataFrame
-print(df.describe())  # печатает описательные статистики
+print(df.describe())  # печатает статистические характеристики DataFrame
 
-df.fillna(0, inplace=True)  # inplace=True - обновляет df вместе с заменой пропущенных значений
+'''
+заполняет пропущенные значения в столбце Salary нулями
+'''
+df.fillna(0, inplace=True)
 print(df)
 
 '''
@@ -14,4 +17,9 @@ print(df)
 '''
 grouped_df = df.groupby('City')['Salary'].mean()
 print(grouped_df)
-print(grouped_df.agg(['min', 'max'])) # печатает минимальное и максимальное значение для каждого города
+
+'''
+ группирует DataFrame по столбцу City и считает минимальное и максимальное значение в столбце Salary
+'''
+grouped_df = df.groupby('City')['Salary'].agg(['min', 'max'])
+print(grouped_df.agg(['min', 'max']))
