@@ -1,5 +1,5 @@
-# Работа с датасетами через функции Pandas
-
+# Working with dates via Pandas functions
+#
 ```python
 import pandas as pd # импортирует библиотеку pandas под именем pd
 
