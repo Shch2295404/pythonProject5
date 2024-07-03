@@ -17,6 +17,7 @@ print(df0.columns) # печатает названия столбцов
 print(df0.index) # печатает индексы строк
 print(df0["RecipeName"]) # печатает столбец RecipeName
 print(df0[["RecipeId", "RecipeName"]]) # печатает столбцы RecipeId и RecipeName
+print(df0.loc[1234]) # печатает строку с индексом 1234
 print(df0.head(3))
 print(df0.tail(1))
 
