@@ -10,6 +10,7 @@ import pandas as pd # импортирует библиотеку pandas под 
  Вызывает функцию read_csv для чтения файла "recipes.csv" и печатает возвращаемый ею DataFrame.
 """
 df0 = pd.read_csv("recipes.csv")
+print(df0.info()) # печатает информацию о DataFrame
 print(df0.head(3))
 print(df0.tail(1))
 
