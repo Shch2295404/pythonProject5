@@ -3,6 +3,7 @@
 ```python
 import pandas as pd # импортирует библиотеку pandas под именем pd
 
+
 """
  Этот фрагмент кода выполняет следующие действия:
  Импортирует библиотеку pandas под именем pd.
@@ -11,9 +12,15 @@ import pandas as pd # импортирует библиотеку pandas под 
  Определяет функцию read_csv, которая считывает CSV-файл и возвращает DataFrame.
  Вызывает функцию read_csv для чтения файла "recipes.csv" и печатает возвращаемый ею DataFrame.
 """
-
 df0 = pd.read_csv("recipes.csv")
 print(df0.info()) # печатает информацию о DataFrame
+print(df0.shape) # печатает количество строк и столбцов
+print(df0.describe()) # печатает описательные статистики
+print(df0.columns) # печатает названия столбцов
+print(df0.index) # печатает индексы строк
+print(df0["RecipeName"]) # печатает столбец RecipeName
+print(df0[["RecipeId", "RecipeName"]]) # печатает столбцы RecipeId и RecipeName
+print(df0.loc[1234]) # печатает строку с индексом 1234
 print(df0.head(3))
 print(df0.tail(1))
 
