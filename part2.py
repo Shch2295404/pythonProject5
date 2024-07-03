@@ -16,3 +16,16 @@ print(df.head(len(df)))
 
 df.drop('test', axis=1, inplace=True) # inplace=True - обновляет df вместе с удалением столбца
 print(df.head(len(df)))
+
+df.drop(len(df)-4, axis=0, inplace=True) # inplace=True - обновляет df вместе с удалением строки
+print(df.head(len(df)))
+
+df.sort_values(by='Название вакансии', inplace=True) # Сортировка DataFrame по столбцу 'Название вакансии'
+'''
+df.arrange('Название вакансии')
+Для ясности и стандартизации я заменил arrange на sort_values. 
+Кроме того, я использовал параметр by, чтобы указать столбец для сортировки, 
+и установил inplace=True для операции сортировки, чтобы изменить DataFrame на месте.
+'''
+print(df.head(len(df)))
+df.to_csv('hh.csv', index=False)  # сохранение csv-файла
