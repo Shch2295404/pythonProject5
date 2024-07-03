@@ -5,3 +5,5 @@ print(df.columns)  # вывод названий столбцов
 print(df.dtypes)  # вывод типов столбцов
 print(df.nunique())  # вывод уникальных значений столбца
 print(df.describe())  # вывод описательной статистики
+
+df['test'] = [new for new in range(len(df))] # создание нового столбца
