@@ -21,10 +21,11 @@ print(df0.loc[1234]) # печатает строку с индексом 1234
 print(df0.head(3))
 print(df0.tail(1))
 print(df0.loc[1234,'RecipeDescription']) # печатает описание рецепта с индексом 1234
+print(df0[df0['RecipeDescription'].str.contains('Chicken')],"\n") # печатает рецепты, содержащие "Chicken"
 
 df1=pd.DataFrame(df0)
-print(df1.head())
-print(df1.tail())
+print(df1.head(2)) # печатает первые 2 строки
+print(df1.tail(1))
 
 def read_csv(file):
     """
