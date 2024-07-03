@@ -23,6 +23,7 @@ print(df0[["RecipeId", "RecipeName"]]) # печатает столбцы RecipeI
 print(df0.loc[1234]) # печатает строку с индексом 1234
 print(df0.head(3))
 print(df0.tail(1))
+print(df0.loc[1234,'RecipeDescription']) # печатает описание рецепта с индексом 1234
 
 df1=pd.DataFrame(df0)
 print(df1.head())
