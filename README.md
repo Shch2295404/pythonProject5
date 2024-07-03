@@ -1,5 +1,66 @@
 # Working with dates via Pandas functions
-#
+# part5.py
+```python
+"""
+    Считывает CSV-файл с именем "dz.csv" в pandas DataFrame.
+    Печатает первые 5 строк DataFrame.
+    Выводит информацию о DataFrame.
+    Выводит статистическую информацию о DataFrame.
+    Заполняет все отсутствующие значения в DataFrame значением 0.
+    Группирует кадры данных по столбцу "Город" и вычисляет среднюю зарплату для каждого города.
+    Группирует кадр данных по столбцу "Город" и вычисляет минимальную
+     и максимальную зарплату для каждого города.
+"""
+import pandas as pd
+
+
+df = pd.read_csv("dz.csv")
+print(df.head())
+print(df.info())
+print(df.describe())
+
+df.fillna(0, inplace=True)
+print(df)
+
+grouped_df = df.groupby('City')['Salary'].mean()
+print(grouped_df)
+
+grouped_df = df.groupby('City')['Salary'].agg(['min', 'max'])
+print(grouped_df.agg(['min', 'max']))
+
+```
+# part3.py
+```python
+'''
+Считывает CSV-файл с именем 'animal.csv' в pandas DataFrame.
+Заполняет отсутствующие значения в DataFrame значением 0.
+Сохраняет обновленный DataFrame обратно в 'animal.csv' без включения значений индексов.
+Группирует DataFrame по столбцу "Пища" и вычисляет среднее значение столбца "Средняя продолжительность жизни".
+'''
+import pandas as pd
+
+
+df = pd.read_csv('animal.csv')
+print(df.head(len(df)))
+
+df.fillna(0, inplace=True)  # inplace=True - обновляет df вместе с заменой пропущенных значений
+print(df.head(len(df)))
+
+'''
+df.dropna(inplace=True) # inplace=True - обновляет df вместе с удалением пропущенных значений
+print(df.head(len(df)))
+'''
+
+df.to_csv('animal.csv', index=False)  # index=False - не сохраняет индексы
+
+grouped_df = df.groupby('Пища')['Средняя продолжительность жизни'].mean()
+'''
+    Пища - название столбца, Средняя продолжительность жизни - столбец с средней продолжительностью жизни
+'''
+print(grouped_df)
+
+```
+# part1.py
 ```python
 import pandas as pd # импортирует библиотеку pandas под именем pd
 
