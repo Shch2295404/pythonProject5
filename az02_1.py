@@ -3,11 +3,6 @@
 вычисляет такие статистические данные, как среднее значение, медиана, квартили, интерквартильный размах, стандартное отклонение,
 и фильтрует данные на основе отклонений от квартилей.
 Затем он визуализирует отфильтрованные оценки по математике с помощью боксплота.
-This code snippet creates a DataFrame with student data,
-calculates statistical data like mean, median, quartiles,
-inter quartile range, standard deviation,
-and filters the data based on deviations from the quartiles.
-It then visualizes the filtered math scores using a boxplot.
 """
 import pandas as pd
 import matplotlib.pyplot as plt
