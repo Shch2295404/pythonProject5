@@ -25,7 +25,7 @@ print(f"Стандартное отклонение - {df['Математика'
 
 """
 import pandas as pd
-# import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 
 
 data = {
@@ -45,7 +45,14 @@ print(f"Медианная оценка - {df['Math'].median()}")
 Q1_math = df['Math'].quantile(0.25)
 Q3_math = df['Math'].quantile(0.75)
 IQR_math = Q3_math - Q1_math
+print(f"Q1 - {Q1_math}, Q3 - {Q3_math}, IQR - {IQR_math}")
 print(f"Стандартное отклонение - {df['Math'].std()}")
+downside = Q1_math - 1.5 * IQR_math
+upside = Q3_math + 1.5 * IQR_math
+print(f"Нижняя граница - {downside}, верхняя граница - {upside}")
+df_new = df[(df['Math'] >= downside) & (df['Math'] <= upside)]
+df_new.boxplot(column='Math')
+plt.show()
 
 '''
 df.boxplot(column='Math')
