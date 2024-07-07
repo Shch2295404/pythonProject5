@@ -25,13 +25,12 @@ print(f"Стандартное отклонение - {df['Математика'
 
 """
 import pandas as pd
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 
 
 data = {
     'name': ['Мария', 'Иван', 'Сергей', 'Александр', 'Инна', 'Ира', 'Инна', 'Дмитрий', 'Елена', 'Николай'],
     'gender': ['female', 'male', 'male', 'male', 'female', 'female', 'female', 'male', 'female', 'male'],
-    'lesson': ['Математика', 'Физика', 'Химия', 'Информатика', 'Литература'],
     'Math': [3, 4, 5, 3, 4, 5, 3, 4, 5, 3],
     'Physics': [4, 3, 4, 4, 3, 4, 4, 3, 4, 4],
     'Chemistry': [4, 3, 3, 4, 3, 3, 4, 3, 3, 4],
@@ -41,12 +40,22 @@ data = {
 
 df = pd.DataFrame(data)
 
+print(f"Средняя оценка - {df['Math'].mean()}")
+print(f"Медианная оценка - {df['Math'].median()}")
+Q1_math = df['Math'].quantile(0.25)
+Q3_math = df['Math'].quantile(0.75)
+IQR_math = Q3_math - Q1_math
+print(f"Стандартное отклонение - {df['Math'].std()}")
+
+'''
+df.boxplot(column='Math')
+plt.show()
 # Преобразуем столбцы в категориальные данные для столбцов "name" и "gender" и "lesson":
 df['name'] = df['name'].astype('category')
 df['gender'] = df['gender'].astype('category')
 df['lesson'] = df['lesson'].astype('category')
 # Команда astype преобразует gender и lesson в категориальный тип,
-# что позволяет работать с этими данными как с категориями.
+#  что позволяет работать с этими данными как с категориями.
 
 print(df['name'].cat.categories)
 print(df['gender'].cat.categories)
@@ -59,21 +68,13 @@ print(df['gender'].cat.codes)
 # сохранили внесённые изменения в изначальном датафрейме
 df['lesson'] = df['lesson'].cat.add_categories(['Economics'])
 print(df['lesson'].cat.categories)
-
 df['lesson'] = df['lesson'].cat.remove_categories(['Economics'])
 print(df['lesson'].cat.categories)
-
 print(df)
-
-print(f"Средняя оценка - {df['Math'].mean()}")
-print(f"Медианная оценка - {df['Math'].median()}")
-Q1_math = df['Math'].quantile(0.25)
-Q3_math = df['Math'].quantile(0.75)
-IQR_math = Q3_math - Q1_math
-print(f"Стандартное отклонение - {df['Math'].std()}")
 
 downside = Q1_math - 1.5 * IQR_math
 upside = Q3_math + 1.5 * IQR_math
 df_new = df[(df['Математика'] >= downside) & (df['Math'] <= upside)]
 df_new.boxplot(column='Math')
 plt.show()
+'''
