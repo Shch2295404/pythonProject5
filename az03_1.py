@@ -2,17 +2,17 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-# Parameters of the normal distribution
-mean = 0  # Mean value
-std_dev = 1  # Standard deviation
-num_samples = 1000  # Number of samples
+# Параметры нормального распределения
+mean = 0 # Среднее значение
+std_dev = 1 # Стандартное отклонение
+num_samples = 1000 # Количество выборок
 
-# Generate random numbers distributed according to the normal distribution
+# Генерируем случайные числа, распределенные в соответствии с нормальным распределением
 data = np.random.normal(mean, std_dev, num_samples)
 
-# Create a histogram
+# Создать гистограмму
 plt.hist(data, bins=30, edgecolor='black')
-plt.title('Histogram of Normally Distributed Data')
+plt.title('Гистограмма нормально распределенных данных')
 plt.xlabel('Value')
 plt.ylabel('Frequency')
 plt.show()
