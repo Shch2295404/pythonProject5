@@ -4,7 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # URL-адрес веб-сайта, с которого будет производиться поиск
-url = 'https://www.divan.ru/category/divany'
+url = 'https://www.divan.ru/sankt-peterburg/category/divany-i-kresla'
 
 # Отправлен GET-запрос к веб-сайту
 response = requests.get(url)
@@ -21,6 +21,7 @@ if response.status_code == 200:
         price_text = price_tag.get_text(strip=True)
         # Удалить нечисловые символы, кроме десятичных точек
         price_text = price_text.replace(' ', '').replace(',', '.').replace('р', '').replace('₽', '')
+        print(price_text)
         try:
             price = float(price_text)
             prices.append(price)
