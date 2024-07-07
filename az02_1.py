@@ -31,10 +31,10 @@ std_dev_math = df_students['Math'].std()
 downside = Q1_math - 1.5 * IQR_math
 upside = Q3_math + 1.5 * IQR_math
 
-print(f"Средняя оценка - {math_mean:.2f}")
-print(f"Медианная оценка - {math_median:.2f}")
+print(f"Средняя оценка - Math {math_mean:.2f}")
+print(f"Медианная оценка - Math {math_median:.2f}")
 print(f"Q1 - {Q1_math:.2f}, Q3 - {Q3_math:.2f}, IQR - {IQR_math:.2f}")
-print(f"Стандартное отклонение - {std_dev_math:.3f}")
+print(f"Стандартное отклонение - Math {std_dev_math:.3f}")
 print(f"Нижняя граница - {downside}, верхняя граница - {upside:.3f}")
 
 # Фильтрация данных по отклонениям
