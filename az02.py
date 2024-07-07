@@ -32,11 +32,11 @@ data = {
     'name': ['Мария', 'Иван', 'Сергей', 'Александр', 'Инна', 'Ира', 'Инна', 'Дмитрий', 'Елена', 'Николай'],
     'gender': ['female', 'male', 'male', 'male', 'female', 'female', 'female', 'male', 'female', 'male'],
     'lesson': ['Математика', 'Физика', 'Химия', 'Информатика', 'Литература'],
-    'Математика': [3, 4, 5, 3, 4, 5, 3, 4, 5, 3],
-    'Физика': [4, 3, 4, 4, 3, 4, 4, 3, 4, 4],
-    'Химия': [4, 3, 3, 4, 3, 3, 4, 3, 3, 4],
-    'Информатика': [4, 4, 5, 4, 4, 5, 4, 4, 5, 4],
-    'Литература': [4, 3, 3, 4, 3, 3, 4, 3, 3, 3]
+    'Math': [3, 4, 5, 3, 4, 5, 3, 4, 5, 3],
+    'Physics': [4, 3, 4, 4, 3, 4, 4, 3, 4, 4],
+    'Chemistry': [4, 3, 3, 4, 3, 3, 4, 3, 3, 4],
+    'Computer Science': [4, 4, 5, 4, 4, 5, 4, 4, 5, 4],
+    'Literature': [4, 3, 3, 4, 3, 3, 4, 3, 3, 3]
 }
 
 df = pd.DataFrame(data)
@@ -57,23 +57,23 @@ df['gender'] = df['gender'].cat.codes
 df['lesson'] = df['lesson'].cat.codes
 print(df['gender'].cat.codes)
 # сохранили внесённые изменения в изначальном датафрейме
-df['lesson'] = df['lesson'].cat.add_categories(['Экономика'])
+df['lesson'] = df['lesson'].cat.add_categories(['Economics'])
 print(df['lesson'].cat.categories)
 
-df['lesson'] = df['lesson'].cat.remove_categories(['Экономика'])
+df['lesson'] = df['lesson'].cat.remove_categories(['Economics'])
 print(df['lesson'].cat.categories)
 
 print(df)
 
-print(f"Средняя оценка - {df['Математика'].mean()}")
-print(f"Медианная оценка - {df['Математика'].median()}")
-Q1_math = df['Математика'].quantile(0.25)
-Q3_math = df['Математика'].quantile(0.75)
+print(f"Средняя оценка - {df['Math'].mean()}")
+print(f"Медианная оценка - {df['Math'].median()}")
+Q1_math = df['Math'].quantile(0.25)
+Q3_math = df['Math'].quantile(0.75)
 IQR_math = Q3_math - Q1_math
-print(f"Стандартное отклонение - {df['Математика'].std()}")
+print(f"Стандартное отклонение - {df['Math'].std()}")
 
 downside = Q1_math - 1.5 * IQR_math
 upside = Q3_math + 1.5 * IQR_math
-df_new = df[(df['Математика'] >= downside) & (df['Математика'] <= upside)]
-df_new.boxplot(column='Математика')
+df_new = df[(df['Математика'] >= downside) & (df['Math'] <= upside)]
+df_new.boxplot(column='Math')
 plt.show()
