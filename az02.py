@@ -39,14 +39,14 @@ data = {
 }
 
 df = pd.DataFrame(data)
-
-print(f"Средняя оценка - {df['Math'].mean()}")
-print(f"Медианная оценка - {df['Math'].median()}")
+print(df.head(10))
+print(f"Средняя оценка - Math {df['Math'].mean()}")
+print(f"Медианная оценка - Math {df['Math'].median()}")
 Q1_math = df['Math'].quantile(0.25)
 Q3_math = df['Math'].quantile(0.75)
 IQR_math = Q3_math - Q1_math
 print(f"Q1 - {Q1_math}, Q3 - {Q3_math}, IQR - {IQR_math}")
-print(f"Стандартное отклонение - {df['Math'].std()}")
+print(f"Стандартное отклонение - Math {df['Math'].std()}")
 downside = Q1_math - 1.5 * IQR_math
 upside = Q3_math + 1.5 * IQR_math
 print(f"Нижняя граница - {downside}, верхняя граница - {upside}")
