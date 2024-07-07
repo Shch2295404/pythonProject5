@@ -27,6 +27,7 @@ print(f"Стандартное отклонение - {df['Математика'
 import pandas as pd
 import matplotlib.pyplot as plt
 
+
 data = {
     'name': ['Мария', 'Иван', 'Сергей', 'Александр', 'Инна', 'Ира', 'Инна', 'Дмитрий', 'Елена', 'Николай'],
     'gender': ['female', 'male', 'male', 'male', 'female', 'female', 'female', 'male', 'female', 'male'],
@@ -40,15 +41,20 @@ data = {
 
 df = pd.DataFrame(data)
 
-# Преобразуем столбцы в категориальные данные для столбцов "gender" и "lesson":
+# Преобразуем столбцы в категориальные данные для столбцов "name" и "gender" и "lesson":
+df['name'] = df['name'].astype('category')
 df['gender'] = df['gender'].astype('category')
 df['lesson'] = df['lesson'].astype('category')
 # Команда astype преобразует gender и lesson в категориальный тип,
 # что позволяет работать с этими данными как с категориями.
 
+print(df['name'].cat.categories)
 print(df['gender'].cat.categories)
 print(df['lesson'].cat.categories)
 
+df['name'] = df['name'].cat.codes
+df['gender'] = df['gender'].cat.codes
+df['lesson'] = df['lesson'].cat.codes
 print(df['gender'].cat.codes)
 # сохранили внесённые изменения в изначальном датафрейме
 df['lesson'] = df['lesson'].cat.add_categories(['Экономика'])
