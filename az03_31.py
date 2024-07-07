@@ -14,7 +14,7 @@ if response.status_code == 200:
     # Разбираем содержимое HTML с помощью BeautifulSoup
     soup = BeautifulSoup(response.content, 'html.parser')
 
-    # Найдите соответствующие элементы, содержащие цены
+    # Найти соответствующие элементы, содержащие цены
     # Примечание: Обновить селекторы в соответствии с фактической структурой сайта
     prices = []
     for price_tag in soup.select('div.price'):
