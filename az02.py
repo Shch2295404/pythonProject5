@@ -8,20 +8,20 @@ data = {
  }
 2. Вывести первые несколько строк DataFrame, чтобы убедиться, что данные загружены правильно
 3. Вычислить среднюю оценку по каждому предмету
-print(f"Средняя оценка - {df['Математика'].mean()}")
+print(f"Средняя оценка - {df['Math'].mean()}")
 4. Вычислить медианную оценку по каждому предмету
-print(f"Медианная оценка - {df['Математика'].median()}")
+print(f"Медианная оценка - {df['Math'].median()}")
 5. Вычислить Q1 и Q3 для оценок по математике:
-Q1_math = df['Математика'].quantile(0.25)
-Q3_math = df['Математика'].quantile(0.75)
+Q1_math = df['Math'].quantile(0.25)
+Q3_math = df['Math'].quantile(0.75)
 IQR_math = Q3_math - Q1_math
 downside = Q1_math - 1.5 * IQR_math
 upside = Q3_math + 1.5 * IQR_math
-df_new = df[(df['Математика'] >= downside) & (df['Математика'] <= upside)]
-df_new.boxplot(column='Математика')
+df_new = df[(df['Math'] >= downside) & (df['Math'] <= upside)]
+df_new.boxplot(column='Math')
 plt.show()
 6. Вычислить стандартное отклонение
-print(f"Стандартное отклонение - {df['Математика'].std()}")
+print(f"Стандартное отклонение - {df['Math'].std()}")
 
 """
 import pandas as pd
