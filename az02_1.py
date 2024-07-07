@@ -25,15 +25,15 @@ std_dev_math = df_students['Math'].std()
 downside = Q1_math - 1.5 * IQR_math
 upside = Q3_math + 1.5 * IQR_math
 
+print(f"Средняя оценка - {math_mean}")
+print(f"Медианная оценка - {math_median}")
+print(f"Q1 - {Q1_math}, Q3 - {Q3_math}, IQR - {IQR_math}")
+print(f"Стандартное отклонение - {std_dev_math}")
+print(f"Нижняя граница - {downside}, верхняя граница - {upside}")
+
 # Фильтрация данных по отклонениям
 df_filtered_math = df_students[(df_students['Math'] >= downside) & (df_students['Math'] <= upside)]
 
 # Визуализация отфильтрованных оценок по математике
 df_filtered_math.boxplot(column='Math')
 plt.show()
-
-print(f"Средняя оценка - {math_mean}")
-print(f"Медианная оценка - {math_median}")
-print(f"Q1 - {Q1_math}, Q3 - {Q3_math}, IQR - {IQR_math}")
-print(f"Стандартное отклонение - {std_dev_math}")
-print(f"Нижняя граница - {downside}, верхняя граница - {upside}")
