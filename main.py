@@ -17,7 +17,7 @@ async def photo_handler(message: Message):
         'https://home.sportb2b.ru/media/User/CompanyCustomer/2022-12-05/e466707094a6fb9b3253017fb5641b5c.jpg'
     ]
     rand_photo = random.choice(photos)
-    await message.answer_photo(rand_photo)
+    await message.answer_photo(rand_photo, caption='Спартак ЧЕМПИОН')
 
 
 @dp.message(F.text == 'Спартак')
