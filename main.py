@@ -32,8 +32,9 @@ async def react_photo_handler(message: Message):
         'Непонятно, что это такое',
         'Не отправляйте пожалуйста такое больше'
     ]
-    rand_reaction = random.choice(reactions)
-    await message.answer(rand_reaction)
+    reaction_message = random.choice(reactions)
+    await message.answer(reaction_message)
+    await bot.download(message.photo[-1].file_id, destination=f'/tmp/{message.photo[-1].file_id}.jpg')
 
 
 @dp.message(Command('help'))
