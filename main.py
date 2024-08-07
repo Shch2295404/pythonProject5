@@ -7,7 +7,7 @@ bot = Bot(token='')
 dp = Dispatcher()
 
 
-@dp.message(CommandStart)
+@dp.message(CommandStart())
 async def start(message: Message):
     await message.answer(f'Привет, {message.from_user.full_name}!')
 
