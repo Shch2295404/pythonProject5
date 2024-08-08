@@ -9,7 +9,7 @@ import random
 from aiogram import Bot, Dispatcher, F
 from aiogram.filters import Command, CommandStart
 from aiogram.types import Message
-from config import TOKEN
+from config.config import TOKEN
 
 bot = Bot(TOKEN)
 dp = Dispatcher()
